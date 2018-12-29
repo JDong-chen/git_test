@@ -1,5 +1,6 @@
-# myapp
-练习git命令
+# 博客内容管理系统
+# Blog content manage system
+
 ## Project setup
 ```
 npm install
@@ -25,5 +26,3 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
