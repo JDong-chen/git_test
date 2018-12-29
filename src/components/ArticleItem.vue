@@ -1,5 +1,5 @@
 <template>
-  <article >
+  <article @mouseenter="changeImg">
     <h1>{{title}}</h1>
     <span>{{publish_time}}</span>
   </article>
@@ -7,7 +7,9 @@
 <script>
 export default {
   methods: {
-   
+   changeImg () {
+      this.$emit('changeImg')
+    }
   },
   props: {
     title: String,

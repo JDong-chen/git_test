@@ -1,10 +1,10 @@
 <template>
-  <img :src='img_src' alt="vue.jpeg" ref="imgItem"> 
+  <img :src='img_src3' alt="vue.jpeg" ref="imgItem"> 
 </template>
 <script>
 export default {
   props: {
-    img_src: String
+    img_src3: String
   }
 }
 </script>

@@ -5,6 +5,7 @@
     :key="index" 
     :title="item.title" 
     :publish_time="item.mtime" 
+    @changeImg="changeImg(index)"
     ></article-item>
   </ul>
 </template>
@@ -19,7 +20,9 @@ export default {
     }
   },
   methods: {
-  
+    changeImg (index) {
+      this.$emit('changeImg',this.ariticles[index])
+    }
   },
   components: {
     ArticleItem
