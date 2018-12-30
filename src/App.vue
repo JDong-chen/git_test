@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  
+
 }
 </script>
 
@@ -27,7 +27,7 @@ export default {
 header {
   height: 10%;
   width: 100%;
-  
+
   #nav {
     float: right;
     margin: 30px 50px 0 0;

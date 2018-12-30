@@ -5,11 +5,10 @@
 import ImageItem from '@/components/ImageItem.vue'
 export default {
   props: {
-    img_src2:String
+    img_src2: String
   },
   components: {
-    ImageItem,
+    ImageItem
   }
 }
 </script>
-

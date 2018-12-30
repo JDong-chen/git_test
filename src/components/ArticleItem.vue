@@ -7,7 +7,7 @@
 <script>
 export default {
   methods: {
-   changeImg () {
+    changeImg () {
       this.$emit('changeImg')
     }
   },
@@ -27,7 +27,6 @@ article {
     font-size: 0.7em;
     color: rgb(150, 150, 150);
   }
-  
+
 }
 </style>
-

@@ -26,12 +26,12 @@ export default {
         } else {
           this.img_src1 = require('../assets/images/vue.jpeg')
         }
-      },500)
+      }, 500)
     }
   },
   components: {
     ContentImg,
-    ArticleList,
+    ArticleList
   }
 }
 </script>
@@ -43,4 +43,3 @@ export default {
   width: 100%;
 }
 </style>
-
