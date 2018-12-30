@@ -12,6 +12,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/article',
+      name: 'article',
+      component: () => import('./views/ArticleContent.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

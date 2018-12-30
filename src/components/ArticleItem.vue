@@ -1,6 +1,9 @@
 <template>
-  <article @mouseenter="changeImg">
-    <h1>{{title}}</h1>
+  <article 
+  @mouseenter="changeImg"
+  @click="artClick"
+  >
+    <a href="#"><h1>{{title}}</h1></a>
     <span>{{publish_time}}</span>
   </article>
 </template>
@@ -9,6 +12,9 @@ export default {
   methods: {
     changeImg () {
       this.$emit('changeImg')
+    },
+    artClick () {
+      this.$emit('artClick')
     }
   },
   props: {
@@ -20,9 +26,15 @@ export default {
 <style lang="less" scoped>
 article {
   padding: 10px;
-  h1 {
-    margin: 1px;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration-line: none;
+    h1 {
+      margin: 1px;
+    }
   }
+
   span {
     font-size: 0.7em;
     color: rgb(150, 150, 150);

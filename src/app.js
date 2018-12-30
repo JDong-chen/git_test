@@ -1,6 +1,7 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
+const marked = require('marked')
 const app = express()
 
 const sortBy = function (filed, rev, primer) {
@@ -26,13 +27,13 @@ let idReg = /-\d+/
 
 const readDir = function (artPath) {
   fs.readdir(artPath, (err, files) => {
-    if (err) return console.log(err)
+    if (err) return console.error(err)
     else {
       let imgTemp
       files.forEach((file) => {
         let fileNode = {}
         fs.stat(`${artPath}/${file}`, (err, stats) => {
-          if (err) return console.log(err)
+          if (err) return console.error(err)
           if (stats.isDirectory()) {
             readDir(`${artPath}/${file}`)
           } else {
@@ -44,16 +45,16 @@ const readDir = function (artPath) {
               fileNode.img = imgTemp
               imgTemp = undefined
             }
+            const fileData = marked(fs.readFileSync(`${artPath}/${file}`, { encoding: 'utf8' }))
             fileNode.id = file.match(idReg)[0].replace('-', '')
             fileNode.title = file.replace(titleReg, '')
             fileNode.mtime = stats.mtime.toLocaleDateString()
+            fileNode.fileData = fileData
             filesList.push(fileNode)
-            if (filesList.length === 10) {
-              filesList.sort(sortBy('id', true, parseInt))
-              console.log('*')
-              console.log(filesList)
-              console.log('*')
-            }
+            filesList.sort(sortBy('id', true, parseInt))
+            console.log('*****')
+            console.log(filesList)
+            console.log('*****')
           }
         })
       })

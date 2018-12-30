@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <content-img :img_src2="img_src1"></content-img>
-    <article-list @changeImg="changeImg"></article-list>
+    <content-img ></content-img>
+    <article-list></article-list>
   </div>
 </template>
 
@@ -12,27 +12,10 @@ import ArticleList from '@/components/ArticleList.vue'
 
 export default {
   name: 'home',
-  data () {
-    return {
-      img_src1: require('../assets/images/vue.jpeg')
-    }
-  },
-  methods: {
-    changeImg (article) {
-      const timer = setTimeout(() => {
-        if (timer) clearTimeout(timer)
-        if (article.img) {
-          this.img_src1 = require(`../article/${article.title}/${article.img}`)
-        } else {
-          this.img_src1 = require('../assets/images/vue.jpeg')
-        }
-      }, 500)
-    }
-  },
   components: {
     ContentImg,
     ArticleList
-  }
+  },
 }
 </script>
 <style lang="less" scoped>

@@ -1,11 +1,12 @@
 <template>
   <ul id="artItemList">
     <article-item
-    v-for="(item, index) in ariticles"
+    v-for="(item, index) in articles"
     :key="index"
     :title="item.title"
     :publish_time="item.mtime"
     @changeImg="changeImg(index)"
+    @artClick="artClick(index)"
     ></article-item>
   </ul>
 </template>
@@ -22,12 +23,16 @@ export default {
   name: 'itemList',
   data () {
     return {
-      ariticles: []
+      articles: []
     }
   },
   methods: {
     changeImg (index) {
-      this.$emit('changeImg', this.ariticles[index])
+      this.$store.dispatch('modifyImgSrc', require(`../article/${this.articles[index].title}/${this.articles[index].img}`))
+    },
+    artClick (index) {
+      this.$store.dispatch('modifyArticleData', this.articles[index].fileData)
+      this.$router.push('article')
     }
   },
   components: {
@@ -39,8 +44,8 @@ export default {
       url: 'http://localhost:3000/articleList'
     })
       .then(res => {
-        this.ariticles = res.data
-        console.log(this.ariticles)
+        this.articles = res.data
+        this.$store.dispatch('modifyArticleData', this.articles[0].fileData)
       })
       .catch(err => {
         if (err) return console.log(err)

@@ -1,10 +1,12 @@
 <template>
-  <img :src='img_src3' alt="vue.jpeg" ref="imgItem">
+  <img :src='getImgSrc' alt="vue.jpeg" ref="imgItem">
 </template>
 <script>
 export default {
-  props: {
-    img_src3: String
+  computed: {
+    getImgSrc () {
+      return this.$store.getters.imgSrc
+    }
   }
 }
 </script>
