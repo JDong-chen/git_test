@@ -18,13 +18,14 @@
 
 <script>
 import ArticleItem from '@/components/ArticleItem.vue'
-import axios from 'axios'
+import{ mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'itemList',
-  data () {
-    return {
-      articles: []
-    }
+  computed: {
+    ...mapGetters([
+      'articles'
+    ])
   },
   methods: {
     changeImg (index) {
@@ -32,24 +33,10 @@ export default {
     },
     artClick (index) {
       this.$store.dispatch('modifyArticleData', this.articles[index].fileData)
-      this.$router.push('article')
     }
   },
   components: {
     ArticleItem
   },
-  mounted () {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3000/articleList'
-    })
-      .then(res => {
-        this.articles = res.data
-        this.$store.dispatch('modifyArticleData', this.articles[0].fileData)
-      })
-      .catch(err => {
-        if (err) return console.log(err)
-      })
-  }
 }
 </script>

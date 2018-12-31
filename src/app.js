@@ -52,9 +52,9 @@ const readDir = function (artPath) {
             fileNode.fileData = fileData
             filesList.push(fileNode)
             filesList.sort(sortBy('id', true, parseInt))
-            console.log('*****')
-            console.log(filesList)
-            console.log('*****')
+            // console.log('*****')
+            // console.log(filesList)
+            // console.log('*****')
           }
         })
       })
@@ -65,6 +65,7 @@ readDir(rootPath)
 
 app.get('/', (req, res) => res.send('Hello World!'))
   .get('/articleList', (req, res) => {
+    console.log('8080')
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
     res.send(filesList)
     filesList = []

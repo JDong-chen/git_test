@@ -6,9 +6,27 @@
         <router-link to="/about">About</router-link>
       </div>
     </header>
-    <router-view/>
+    <router-view id="routerView"/>
   </div>
 </template>
+<script>
+import axios from 'axios'
+
+export default {
+  mounted () {
+    axios({
+      method: 'get',
+      url: 'http://localhost:3000/articleList'
+    })
+      .then(res => {
+        this.$store.dispatch('modifyArticles', res.data)
+      })
+      .catch(err => {
+        if (err) return console.log(err)
+      })
+  }
+}
+</script>
 
 <style lang="less">
 #app {
@@ -36,5 +54,9 @@ header {
       }
     }
   }
+}
+#routerView {
+  height: 90%;
+  width: 100%;
 }
 </style>
