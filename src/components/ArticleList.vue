@@ -10,18 +10,17 @@
     ></article-item>
   </ul>
 </template>
-<style lang="less">
-#artItemList {
-  overflow: auto;
-}
-</style>
-
 <script>
 import ArticleItem from '@/components/ArticleItem.vue'
 import{ mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'itemList',
+  data () {
+    return {
+      timer: null
+    }
+  },
   computed: {
     ...mapGetters([
       'articles'
@@ -29,7 +28,10 @@ export default {
   },
   methods: {
     changeImg (index) {
-      this.$store.dispatch('modifyImgSrc', require(`../article/${this.articles[index].title}/${this.articles[index].img}`))
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.$store.dispatch('modifyImgSrc', require(`../article/${this.articles[index].title}/${this.articles[index].img}`))
+      },500)
     },
     artClick (index) {
       this.$store.dispatch('modifyArticleData', this.articles[index].fileData)
@@ -40,3 +42,9 @@ export default {
   },
 }
 </script>
+<style lang="less">
+#artItemList {
+  overflow: auto;
+  padding: 0 40px;
+}
+</style>

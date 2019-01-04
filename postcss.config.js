@@ -1,5 +1,7 @@
 module.exports = {
   plugins: {
-    autoprefixer: {}
+    autoprefixer: {
+      browsers: ['last 7 iOS versions', 'last 3 versions', '> 1%']
+    }
   }
 }

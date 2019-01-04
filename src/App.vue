@@ -6,7 +6,9 @@
         <router-link to="/about">About</router-link>
       </div>
     </header>
-    <router-view id="routerView"/>
+    <transition name="myfade">
+      <router-view id="routerView"/>
+    </transition>
   </div>
 </template>
 <script>
@@ -42,9 +44,9 @@ header {
   width: 100%;
 
   #nav {
-    float: right;
-    margin: 30px 50px 0 0;
-    text-align: right;
+    float: left;
+    margin: 30px 0 0 20%;
+    text-align: lef t;
     a {
       font-weight: bold;
       color: #2c3e50;
@@ -58,5 +60,12 @@ header {
 #routerView {
   height: 90%;
   width: 100%;
+}
+
+.myfade-enter-active {
+  transition: opacity .5s linear
+}
+.myfade-enter {
+  opacity: 0;
 }
 </style>

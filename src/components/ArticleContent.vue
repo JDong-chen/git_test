@@ -31,14 +31,22 @@ article {
   #art{
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     #artContent {
-      padding: 0 20%;
+      width: 60%;
+      position: absolute; 
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
   }
   #artBack {
     position: absolute;
+    bottom: 5%; 
+    right: 5%; 
   }
 }
 </style>
