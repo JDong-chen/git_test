@@ -44,8 +44,8 @@ header {
   width: 100%;
 
   #nav {
-    float: left;
-    margin: 30px 0 0 20%;
+    float: right;
+    margin: 30px 10% 0 0;
     text-align: lef t;
     a {
       font-weight: bold;

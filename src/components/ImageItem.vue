@@ -1,12 +1,15 @@
 <template>
-  <img :src='getImgSrc' alt="vue.jpeg" ref="imgItem">
+  <img :src='imgSrc' alt="vue.jpeg" ref="imgItem">
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
+
 export default {
   computed: {
-    getImgSrc () {
-      return this.$store.getters.imgSrc
-    }
+    ...mapGetters([
+      'imgSrc'
+    ])
   }
 }
 </script>
@@ -15,6 +18,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
 }
 </style>
