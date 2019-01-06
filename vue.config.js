@@ -1,5 +1,5 @@
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   baseUrl: './',
@@ -8,7 +8,7 @@ module.exports = {
     plugins: [
       new CopyWebpackPlugin([
         {
-          from: path.join(__dirname, 'server'),
+          from: path.join(__dirname, '/src/server'),
           to: path.join(__dirname, '/dist/server'),
           ignore: ['.*']
         }

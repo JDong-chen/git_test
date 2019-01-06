@@ -30,7 +30,7 @@ export default {
     changeImg (index) {
       clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        this.$store.dispatch('modifyImgSrc', `../server/article/${this.articles[index].title}/${this.articles[index].img}`)
+        this.$store.dispatch('modifyImgSrc', `./server/article/${this.articles[index].title}/${this.articles[index].img}`)
       },500)
     },
     artClick (index) {
